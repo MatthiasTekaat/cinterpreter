@@ -1,0 +1,50 @@
+.................................................EE........
+======================================================================
+ERROR: test_struct_pointer (__main__.TestAddition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\unittests.py", line 519, in test_struct_pointer
+    self.interpreter.run(ast_converter.code_dict, False)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 1024, in run
+    self.interpret(callable_func)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 845, in interpret
+    return_value=self.interpret_statements(func_def['statements'])
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 939, in interpret_statements
+    value = self.interpret(statement)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 686, in interpret
+    variable = self.current_scope.find_variable(variable)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\scope.py", line 160, in find_variable
+    return self.parent.find_variable(name)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\scope.py", line 167, in find_variable
+    raise UndefinedVariable(name)
+errorhandler.UndefinedVariable: ('Variable 1 not in Scope', 0)
+
+======================================================================
+ERROR: test_struct_pointer_inside_struct (__main__.TestAddition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\unittests.py", line 547, in test_struct_pointer_inside_struct
+    self.interpreter.run(ast_converter.code_dict, False)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 1021, in run
+    self.interpret(self.ast_to_json(node))
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 198, in interpret
+    self.interpret(variable)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 211, in interpret
+    self.interpret(variable)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 211, in interpret
+    self.interpret(variable)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 211, in interpret
+    self.interpret(variable)
+  [Previous line repeated 976 more times]
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 228, in interpret
+    address=self.memory.malloc(size)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\memory.py", line 49, in malloc
+    random_bits = secrets.randbits(self.random_bits_size)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\random.py", line 828, in getrandbits
+    if k < 0:
+RecursionError: maximum recursion depth exceeded in comparison
+
+----------------------------------------------------------------------
+Ran 59 tests in 0.400s
+
+FAILED (errors=2)

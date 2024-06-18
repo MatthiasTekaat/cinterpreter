@@ -1,0 +1,69 @@
+..EE.......E.....
+======================================================================
+ERROR: test_array_pointer4 (__main__.TestAddition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\badunittests2.py", line 78, in test_array_pointer4
+    self.interpreter.run(ast_converter.code_dict, False)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 1024, in run
+    self.interpret(callable_func)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 845, in interpret
+    return_value=self.interpret_statements(func_def['statements'])
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 939, in interpret_statements
+    value = self.interpret(statement)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 771, in interpret
+    rhs = [self.interpret(x) for x in node['rhs']]
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 771, in <listcomp>
+    rhs = [self.interpret(x) for x in node['rhs']]
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 338, in interpret
+    my_variable = variable.get_value(offset=offset, stars=stars-1)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\value.py", line 286, in get_value
+    data = self.memory.read(current_address + offset, size=self.memory.random_bits_size)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\memory.py", line 101, in read
+    raise MemoryError(f"Invalid read of size {size} at {hex(address)}")
+MemoryError: Invalid read of size 128 at 0xe165197039b81605dc058b1c5d896470000000000000008
+
+======================================================================
+ERROR: test_char_ptr_conversion (__main__.TestAddition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\badunittests2.py", line 331, in test_char_ptr_conversion
+    self.interpreter.run(ast_converter.code_dict, False)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 1024, in run
+    self.interpret(callable_func)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 845, in interpret
+    return_value=self.interpret_statements(func_def['statements'])
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 939, in interpret_statements
+    value = self.interpret(statement)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 771, in interpret
+    rhs = [self.interpret(x) for x in node['rhs']]
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 771, in <listcomp>
+    rhs = [self.interpret(x) for x in node['rhs']]
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 110, in interpret
+    raise InvalidPointerConversion(self.current_line)
+errorhandler.InvalidPointerConversion: ('Type Conversion for pointers is not valid unless pointer and type are the same', 0)
+
+======================================================================
+ERROR: test_struct_pointer_cast_write (__main__.TestAddition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\badunittests2.py", line 357, in test_struct_pointer_cast_write
+    ast_converter.ast_to_dict()
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 291, in ast_to_dict
+    self.code_dict.append(self.convert_node(node))
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 66, in convert_node
+    result['statements']=[self.convert_node(item) for item in node.body.block_items]
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 66, in <listcomp>
+    result['statements']=[self.convert_node(item) for item in node.body.block_items]
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 110, in convert_node
+    rhs = self.convert_node(node.init)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 75, in convert_node
+    result['to_type'] = self.convert_node(node.to_type)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 184, in convert_node
+    result['name'] = current_level.names[0]
+AttributeError: 'Struct' object has no attribute 'names'
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.079s
+
+FAILED (errors=3)

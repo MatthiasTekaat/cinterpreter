@@ -1,0 +1,43 @@
+.........EE...
+======================================================================
+ERROR: test_printing_invalid_chararray_throws_exception (__main__.TestAddition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\unittestcompare.py", line 215, in test_printing_invalid_chararray_throws_exception
+    ast_converter.ast_to_dict()
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 291, in ast_to_dict
+    self.code_dict.append(self.convert_node(node))
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 66, in convert_node
+    result['statements']=[self.convert_node(item) for item in node.body.block_items]
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 66, in <listcomp>
+    result['statements']=[self.convert_node(item) for item in node.body.block_items]
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\astconverter.py", line 143, in convert_node
+    result['dimension'].append(self.convert_node(node_type.dim)['value'])
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_printing_invalid_chararray_throws_exception2 (__main__.TestAddition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\unittestcompare.py", line 250, in test_printing_invalid_chararray_throws_exception2
+    self.assertRaises(MemoryError, self.interpreter.run, ast_converter.code_dict, False)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\unittest\case.py", line 738, in assertRaises
+    return context.handle('assertRaises', args, kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\unittest\case.py", line 201, in handle
+    callable_obj(*args, **kwargs)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 1024, in run
+    self.interpret(callable_func)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 845, in interpret
+    return_value=self.interpret_statements(func_def['statements'])
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 939, in interpret_statements
+    value = self.interpret(statement)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 835, in interpret
+    self.compareArgs(actual_args,expected_args,name,self.line)
+  File "C:\Users\Laptop\ba_interpreter_mtekaat\src\interpreter.py", line 988, in compareArgs
+    if expectedArgs[i]['data_type']!=actualArgs[i]['data_type']:
+KeyError: 'data_type'
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.075s
+
+FAILED (errors=2)
